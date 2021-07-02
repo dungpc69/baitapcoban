@@ -1,0 +1,39 @@
+#include<stdio.h>
+
+int UCLN(int a, int b) {
+	if (a % b != 0) {
+		return UCLN(b, a % b);
+	} else {
+		return b;
+	}
+}
+
+int main() {
+	
+	int a, b;
+	scanf("%d%d", &a, &b);
+	if (a * b == 0) {
+		if (a == 0 && b != 0) {
+			printf("%d", 0);
+		} else if (a != 0 && b == 0) {
+			printf("INVALID");
+		} else if (a == 0 && b == 0) {
+			printf("INVALID");
+		}
+	} else {
+		int ucln = UCLN(a , b);
+		a /= ucln;
+		b /= ucln;
+		if (b != 1) {
+			if (b < 0) {
+				a *= -1;
+				b *= -1;
+			}
+			printf("%d %d", a, b);
+		} else {
+			printf("%d", a);
+		}
+	}
+	
+	return 0;
+}
