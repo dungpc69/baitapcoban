@@ -1,0 +1,47 @@
+#include<stdio.h>
+
+void NhapMang(int a[], int n) {
+	int i;
+	for (i = 0; i < n; i++) {
+		printf("Nhap phan tu thu %d: ", i + 1);
+		scanf("%d", &a[i]);
+	}
+}
+
+void XuatMang(int a[], int n) {
+	int i;
+	for (i = 0; i < n; i++) {
+		printf("\na[%d] = %d\n", i, a[i]);
+	}
+}
+
+void SapXepMang(int a[], int n) {
+	int i, j;
+	for (i = 0; i < n; i++) {
+		for (j = i + 1; j < n; j++) {
+			if (a[i] < a[j]) {
+				int tmp = a[i];
+				a[i] = a[j];
+				a[j] = tmp;
+			}
+		}
+	}
+}
+
+int main() {
+	
+	int n, a[100], i;
+	printf("Nhap so phan tu cua mang : ");
+	scanf("%d", &n);
+  
+	NhapMang(a, n);
+	XuatMang(a, n);
+	SapXepMang(a, n);
+	printf("\n");
+  
+	for (i = 0; i < n; i++) {
+		printf("%d ", a[i]);
+	}
+	
+	return 0;
+}
