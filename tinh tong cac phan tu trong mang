@@ -1,0 +1,30 @@
+#include<stdio.h>
+ 
+void NhapMang(int a[], int n) {
+ 	int i;
+ 	for (i = 0; i < n; i++) {
+ 		printf("Nhap phan tu thu %d: ", i + 1);
+ 		scanf("%d", &a[i]);
+	}
+}
+ 
+int TongCuaMang(int a[], int n) {
+ 	int i, cong = 0;
+ 	for (i = 0; i < n; i++) {
+ 		cong += a[i];
+	}
+	 return cong;
+}
+ 
+int main() {
+ 	
+ 	int n, a[100], i;
+ 	printf("Nhap so phan tu trong mang: ");
+ 	scanf("%d", &n);
+ 	
+ 	NhapMang(a, n);
+ 	
+ 	printf("%d", TongCuaMang(a, n));
+ 	
+ 	return 0;
+}
