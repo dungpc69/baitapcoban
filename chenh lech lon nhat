@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<math.h>
+
+void NhapMang(int a[], int n){
+	int i;
+	for(i = 0; i < n; i++){
+		scanf("%d", &a[i]);
+	}	
+}
+
+int ChenhLechMax(int a[], int n){
+	int i, j;
+	int HieuMax = abs(a[1] - a[0]);
+	for(i = 0; i < n; i++){
+		for(j = i + 1; j < n; j++){
+			if (abs(a[i] - a[j]) > HieuMax){
+				HieuMax = abs(a[i] - a[j]);
+			}
+		}
+	}
+	return HieuMax;
+}
+
+int main(){
+	
+	int a[10000], n;
+	scanf("%d", &n);
+	
+	NhapMang(a, n);
+	
+	printf("%d", ChenhLechMax(a, n));
+	
+	return 0;
+}
