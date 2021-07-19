@@ -1,0 +1,80 @@
+#include<stdio.h>
+#include<math.h>
+#include<stdbool.h>
+
+void NhapMang(int a[], int n) {
+	int i;
+	for (i = 0; i < n; i++) {
+		scanf("%d", &a[i]);
+	}
+}
+
+void SapXep(int a[], int n) {
+	int i, j;
+	for (i = 0; i < n; i++) {
+		for (j = i + 1; j < n; j++) {
+			if (a[i] > a[j]) {
+				int tmp = a[i];
+				a[i] = a[j];
+				a[j] = tmp;
+			}
+		}
+	}
+}
+
+bool LaSoNguyenTo(int n) {
+	int i;
+	if (n < 2) {
+		return false;
+	}
+	for (i = 2; i <= sqrt(n); i++) {
+		if (n % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+void InSoNguyenTo(int a[], int n) {
+	int i;
+	for (i = 0; i < n; i++) {
+		if (LaSoNguyenTo(a[i])) {
+			printf("%d ", a[i]);
+		}
+	}
+}
+
+int main() {
+	
+	int a[100000], n, i, j, k;
+	scanf("%d", &n);
+	
+	NhapMang(a, n);
+	SapXep(a, n);
+	
+	for(i = 0; i < n; i++){
+		for(j = i + 1; j < n; j++){
+			if(a[i] == a[j]){
+				for(k = j; k < n; k++){
+					a[k] = a[k + 1];
+				}
+				n--;
+			}
+		}
+	}
+	
+	for(i = 0; i < n; i++){
+		for(j = i + 1; j < n; j++){
+			if(a[i] == a[j]){
+				for(k = j; k < n; k++){
+					a[k] = a[k + 1];
+				}
+				n--;
+			}
+		}
+	}
+	
+	InSoNguyenTo(a, n);
+	
+	return 0;
+}
