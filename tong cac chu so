@@ -1,0 +1,22 @@
+#include<stdio.h>
+
+int TongChuSo(int n){
+	int so_tach_ra;
+	int tong_chu_so = 0;
+	while(n != 0){
+		so_tach_ra = n % 10;
+		tong_chu_so += so_tach_ra;
+		n /= 10;
+	}
+	return tong_chu_so;
+}
+
+int main(){
+	
+	int n;
+	scanf("%d", &n);
+	
+	printf("%d", TongChuSo(n));
+	
+	return 0;
+}
