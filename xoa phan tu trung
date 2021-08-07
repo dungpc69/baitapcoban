@@ -1,0 +1,34 @@
+#include<stdio.h>
+
+int main()
+{
+	int a[1000], n;
+	scanf("%d", &n);
+	int i,j,k;
+	for(i = 0; i < n; i++)
+	{
+		scanf("%d", &a[i]);
+	}
+    for(i = 0; i < n - 1; i++)
+	{
+    	j = i +  1;
+    	while(j < n)
+    	{
+      		if (a[i]==a[j])
+			{
+         		for(k = j; k < n - 1; k++)
+         		{
+					a[k] = a[k+1];
+				}
+         		n = n - 1;
+      		}
+      		else j = j + 1;
+   		}	
+	}
+	for(i = 0; i < n; i++)
+	{
+		printf("%d ", a[i]);
+	}
+  
+	return 0;
+}
