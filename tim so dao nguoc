@@ -1,0 +1,44 @@
+//cach 1
+#include<stdio.h>
+
+int main(){
+	
+	int n, tmp;
+	scanf("%d", &n);
+	int res = 0;
+	while(n > 0){
+		tmp = n % 10;
+		res = res * 10 + tmp;
+		n /= 10;
+	}
+	printf("so dao nguoc la: %d", res);
+	
+	return 0;
+}
+
+//cach 2
+#include<stdio.h>
+#include<stdbool.h>
+
+int main(){
+	
+	int n, tmp;
+	scanf("%d", &n);
+	bool first = true;
+	while(n > 0){
+		tmp = n % 10;
+		if(first = true){
+			if(tmp != 0){
+				printf("%d", tmp);
+				first = false;
+			}
+		}else{
+			printf("%d", tmp);
+		}
+		n /= 10;
+	}
+	
+	return 0;
+}
+
+//cach 3
