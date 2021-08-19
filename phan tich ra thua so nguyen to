@@ -11,6 +11,7 @@ int main(){
 			++dem;
 			n /= i;
 		}
+		//dem != 0
 		if(dem){
 			printf("%d", i);
 			if(dem > 1){
