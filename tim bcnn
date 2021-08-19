@@ -1,3 +1,4 @@
+//cach 1
 #include<stdio.h>
 
 int UCLN(int a, int b) {
@@ -17,3 +18,44 @@ int main() {
 	
 	return 0;
 }
+
+//cach 2
+#include<stdio.h>
+
+int max(int a, int b){
+	int max;
+	if(a > b){
+		max = a;
+	}else{
+		max = b;
+	}
+	return max;
+}
+
+int main(){
+	
+	int a, b;
+	scanf("%d%d", &a, &b);
+	if(a == 0 || b == 0){
+		printf("0");
+	}
+	else{
+		int soLonNhat = max(a, b);
+		int maxV = a * b;
+		int i, lcm;
+		for(i = soLonNhat; i <= maxV; i++){
+			if(i % a == 0 && i % b == 0){
+				lcm = i;
+				printf("%d", lcm);
+				break;
+			}
+		}
+	}
+	
+	
+	return 0;
+}
+
+//cach 3: chỉ lấy những số chia hết cho max(a, b) trong vòng for và lcm bằng số nhỏ nhất
+
+//cach 4
