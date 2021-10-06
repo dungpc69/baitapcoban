@@ -1,0 +1,50 @@
+#include<stdio.h>
+
+void nhapMang(int a[], int n){
+	int i;
+	for(i = 0; i < n; i++){
+		scanf("%d", &a[i]);
+	}
+}
+
+void sapXepTang(int a[], int n){
+	int i, j;
+	for(i = 0; i < n - 1; i++){
+		for(j = i + 1; j < n; j++){
+			if(a[i] > a[j]){
+				int tmp = a[i];
+				a[i] = a[j];
+				a[j] = tmp;
+			}
+		}
+	}
+}
+
+int main(){
+	
+	int a[10000], dem_so_am = 0, i, n;
+	scanf("%d", &n);
+	
+	nhapMang(a, n);	
+	sapXepTang(a, n);
+	
+	int tich_3_dau = a[0] * a[1] * a[2];
+	int tich_3_cuoi = a[n - 3] * a[n - 2] * a[n - 1];
+	int tich = a[0] * a[1] * a[n - 1];
+	for(i = 0; i < n; i++){
+		if(a[i] < 0){
+			dem_so_am++;
+		}
+	}
+	if(dem_so_am == 0 && dem_so_am == n ){
+		printf("%d", tich_3_cuoi);
+	}else{
+		if(tich_3_cuoi > tich){
+			printf("%d", tich_3_cuoi);
+		}else{
+			printf("%d", tich);
+		}
+	}
+	
+	return 0;
+}
